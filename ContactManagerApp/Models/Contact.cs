@@ -15,14 +15,14 @@ namespace ContactManagerApp.Models
         [StringLength(30)]
         public string Name { get; set; } = null!;
 
+        [E164Phone]
+        public string Phone { get; set; } = null!;
+
         [EmailAddress]
         [StringLength(30)]
         public string? Email { get; set; } = null;
 
-        [E164Phone]
-        public string Phone { get; set; } = null!;
-
-        public string? Adress
+        public string? Address
         {
             get
             {

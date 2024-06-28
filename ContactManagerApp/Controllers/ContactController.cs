@@ -17,5 +17,15 @@ namespace ContactManagerApp.Controllers
         {
             return View(await repo.GetAllAsync());
         }
+
+        public async Task<IActionResult> AddContact([FromBody] Contact contact)
+        {
+            int id = await repo.CreateAsync(contact);
+
+            return Ok(new
+            {
+                id = id
+            });
+        }
     }
 }
