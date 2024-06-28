@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Contact>
+
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<div class="d-flex row">
+    <div class="d-flex p-0 align-items-end justify-content-end">
+        <button class="btn btn-primary">
+            Create contact
+        </button>
+    </div>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Adress</th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Phone
+                    </td>
+                    <td>
+                        @(item.Email ?? "Not specified")
+                    </td>
+                    <td>
+                        @(item.Adress ?? "Not specified")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

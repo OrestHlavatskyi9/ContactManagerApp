@@ -1,6 +1,8 @@
 using ContactManagerApp.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using ContactManagerApp.Repository;
+using ContactManagerApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services.AddDbContext<ContactDbContext>((serviceProvider, options) =>
 });
 
 builder.Services.AddScoped<DbContext, ContactDbContext>();
+
+builder.Services.AddScoped<IRepository<Contact, int>, ContactDbRepository>();
 
 var app = builder.Build();
 

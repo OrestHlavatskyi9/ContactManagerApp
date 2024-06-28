@@ -26,7 +26,14 @@ namespace ContactManagerApp.Models
         {
             get
             {
-                return $"{StreetAddress}, {City}, {Region}, {Country}";
+                if (string.IsNullOrWhiteSpace(StreetAddress))
+                {
+                    return null;
+                }
+                else
+                {
+                    return $"{StreetAddress}, {City}, {Region}, {Country}";
+                }
             }
             set
             {
